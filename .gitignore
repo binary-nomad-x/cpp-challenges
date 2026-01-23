@@ -1,0 +1,31 @@
+# --- OS Files ---
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# --- Compiled Executables (Windows) ---
+*.exe
+*.out
+*.app
+
+# --- Object Files and Libraries ---
+*.o
+*.obj
+*.so
+*.dylib
+*.dll
+*.lib
+
+# --- IDE & Editor Folders ---
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# --- Debugging Files ---
+*.pdb
+*.ilk
+*.idb
+
+# --- Large/Temporary Files ---
+*.log
