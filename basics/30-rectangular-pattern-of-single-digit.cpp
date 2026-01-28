@@ -2,9 +2,8 @@
 using namespace std;
 
 
-using namespace std;
-
 int main() {
+    
     int digit, rows, cols;
 
     cout << "--- Rectangular Pattern Generator ---" << endl;
