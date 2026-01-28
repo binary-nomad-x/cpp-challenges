@@ -1,4 +1,3 @@
-
 #include <iostream>
 
 // #include <format>
@@ -7,9 +6,7 @@
 
 using namespace std;
 
-int main()
-{
-
+int main() {
     // FORMATTING CPP NUMBERS
     // Method 	Safety	Best Use Case
     // std::format	High	Modern applications needing flexible, safe formatting.

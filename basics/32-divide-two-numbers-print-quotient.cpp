@@ -1,9 +1,9 @@
 #include <iostream>
 using namespace std;
 
-int main()
-{
+int main() {
     double a, b;
+
 
     cout << "Enter first number (divider ): ";
     cin >> a;
