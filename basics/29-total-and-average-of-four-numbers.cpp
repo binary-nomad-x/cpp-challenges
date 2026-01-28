@@ -5,7 +5,6 @@ using namespace std;
 
 int main() {
     double n1, n2, n3, n4;
-    double total, average;
 
     cout << "--- Total and Average Calculator ---" << endl;
 
@@ -17,8 +16,8 @@ int main() {
     }
 
     // Calculations
-    total = n1 + n2 + n3 + n4;
-    average = total / 4.0;
+    const double total = n1 + n2 + n3 + n4;
+    const double average = total / 4.0;
 
     // Output section
     cout << fixed << setprecision(2); // Set output to 2 decimal places

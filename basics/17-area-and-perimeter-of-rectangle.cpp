@@ -1,8 +1,7 @@
 #include <iostream>
 using namespace std;
 
-int main()
-{
+int main() {
     double length, width;
 
     cout << "Enter length: ";
@@ -10,8 +9,8 @@ int main()
     cout << "Enter width: ";
     cin >> width;
 
-    double area = length * width;
-    double perimeter = 2 * (length + width);
+    const double area = length * width;
+    const double perimeter = 2 * (length + width);
 
     cout << "Area: " << area << endl;
     cout << "Perimeter: " << perimeter << endl;

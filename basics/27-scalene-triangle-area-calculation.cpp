@@ -12,8 +12,8 @@ int main() {
 
     // The Triangle Inequality Check: Memory of geometry rules
     if ((a + b > c) && (a + c > b) && (b + c > a)) {
-        double s = (a + b + c) / 2.0;
-        double area = sqrt(s * (s - a) * (s - b) * (s - c));
+        const double s = (a + b + c) / 2.0;
+        const double area = sqrt(s * (s - a) * (s - b) * (s - c));
 
         cout << fixed << setprecision(2);
         cout << "The area of the scalene triangle is: " << area << " units^2" << endl;

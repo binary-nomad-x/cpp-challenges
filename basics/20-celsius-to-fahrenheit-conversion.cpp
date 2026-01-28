@@ -1,8 +1,7 @@
 #include <iostream>
 using namespace std;
 
-int main()
-{
+int main() {
     double celsius;
 
     cout << "Enter temperature in Celsius: ";

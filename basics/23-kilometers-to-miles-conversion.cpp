@@ -3,17 +3,16 @@
 using namespace std;
 
 int main() {
-    double km;
+    double kilometers;
     constexpr double KM_TO_MILES_FACTOR = 0.621371;
 
     cout << "Enter distance in Kilometers: ";
-    cin >> km;
+    cin >> kilometers;
 
-    const double miles = km * KM_TO_MILES_FACTOR;
+    const double miles = kilometers * KM_TO_MILES_FACTOR;
 
     cout << fixed << setprecision(2);
-    cout << km << " km is approximately " << miles << " miles." << endl;
-
+    cout << kilometers << " km is approximately " << miles << " miles." << endl;
 
     return 0;
 }

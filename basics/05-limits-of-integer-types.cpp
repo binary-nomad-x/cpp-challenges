@@ -3,8 +3,7 @@
 using namespace std;
 
 // min max limits of integer types
-int main()
-{
+int main() {
     cout << "maximum limit of int type : " << INT_MAX << endl;
 
     cout << "minimium limit int type : " << INT_MIN << endl;

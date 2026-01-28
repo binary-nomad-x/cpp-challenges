@@ -3,8 +3,7 @@
 using namespace std;
 
 int main() {
-    double kelvin, fahrenheit;
-    const double KELVIN_OFFSET = 273.15;
+    double kelvin;
 
     cout << "Enter temperature in Kelvin: ";
     cin >> kelvin;
@@ -13,8 +12,9 @@ int main() {
     if (kelvin < 0) {
         cout << "Error: Temperature cannot be below 0 Kelvin (Absolute Zero)." << endl;
     } else {
-        fahrenheit = (kelvin - KELVIN_OFFSET) * 1.8 + 32;
-        
+        constexpr double KELVIN_OFFSET = 273.15;
+        const double fahrenheit = (kelvin - KELVIN_OFFSET) * 1.8 + 32;
+
         cout << fixed << setprecision(2);
         cout << kelvin << " K is equal to " << fahrenheit << "°F" << endl;
     }

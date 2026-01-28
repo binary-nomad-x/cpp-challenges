@@ -4,10 +4,11 @@ using namespace std;
 
 // sum of numbers using variables
 
-int main () {
-    int a = 100;
+int main() {
 
-    int b = 200;
+    constexpr int a = 100;
+
+    constexpr int b = 200;
 
     cout << a + b << endl;
 }

@@ -1,17 +1,15 @@
 #include <iostream>
 using namespace std;
 
-int main()
-{
-
-    int l;
+int main() {
+    int length;
     cout << "Enter length of single side (cm) : ";
 
-    cin >> l;
+    cin >> length;
 
-    double v = l * l * l;
+    double const volume = length * length * length;
 
-    cout << "volumen of cube : " << v << " cm^3" << endl;
+    cout << "volumen of cube : " << volume << " cm^3" << endl;
 
     return 0;
 }

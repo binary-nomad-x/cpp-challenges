@@ -1,17 +1,16 @@
 #include <iostream>
 using namespace std;
 
-int main()
-{
-    int r;
+int main() {
+    int radius;
 
     cout << "Enter radius cm: ";
 
-    cin >> r;
+    cin >> radius;
 
-    double v = (4.0 / 3.0) * (22.0 / 7.0) * (r * r * r);
+    const double volume = (4.0 / 3.0) * (22.0 / 7.0) * (radius * radius * radius);
 
-    cout << "Volume of cube is : " << v << " cm^3" << endl;
+    cout << "Volume of cube is : " << volume << " cm^3" << endl;
 
     return 0;
 }

@@ -1,25 +1,24 @@
 #include <iostream>
 using namespace std;
 
-int main()
-{
-    int a, b, temp;
+int main() {
+    int numOne, numTwo;
 
     cout << "Enter a : ";
-    cin >> a;
+    cin >> numOne;
 
     cout << "Enter b : ";
-    cin >> b;
+    cin >> numTwo;
 
-    temp = a;
-    a = b;
-    b = temp;
+    const int temp = numOne;
+    numOne = numTwo;
+    numTwo = temp;
 
     cout << "swapped values : " << endl;
 
-    cout << "a : " << a << endl;
+    cout << "a : " << numOne << endl;
 
-    cout << "b : " << b << endl;
+    cout << "b : " << numTwo << endl;
 
     return 0;
 }

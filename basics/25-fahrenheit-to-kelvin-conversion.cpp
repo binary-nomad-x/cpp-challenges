@@ -2,8 +2,7 @@
 using namespace std;
 
 int main() {
-    double kelvin, celsius;
-    const double OFFSET = 273.15;
+    double kelvin;
 
     cout << "Enter temperature in Kelvin: ";
     cin >> kelvin;
@@ -12,7 +11,8 @@ int main() {
     if (kelvin < 0) {
         cout << "Error: Physics doesn't allow temperatures below 0 K!" << endl;
     } else {
-        celsius = kelvin - OFFSET;
+        constexpr double OFFSET = 273.15;
+        const double celsius = kelvin - OFFSET;
         cout << kelvin << " K is equal to " << celsius << "°C" << endl;
     }
 

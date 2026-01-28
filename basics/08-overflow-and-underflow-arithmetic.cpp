@@ -8,23 +8,16 @@ using namespace std;
 
 using namespace std;
 
-int main()
-{
+int main() {
     int n; // Badi range use karein taake check kar sakein
 
     cout << "Enter a number : ";
-    if (!(cin >> n))
-    {
-        // Agar user ne alphabet ya koi ajeeb cheez daali
+    if (!(cin >> n)) {
         cout << "Not an integer but something else" << endl;
-    }
-    else if (n < INT_MIN || n > INT_MAX)
-    {
+    } else if (n < INT_MIN || n > INT_MAX) {
         cout << "Range of int is [" << INT_MIN << ", " << INT_MAX << "]" << endl;
         cout << "Your number is out of range!" << endl;
-    }
-    else
-    {
+    } else {
         cout << "Valid integer: " << n << endl;
     }
 

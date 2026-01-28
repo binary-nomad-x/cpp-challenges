@@ -1,17 +1,16 @@
 #include <iostream>
 using namespace std;
 
-int main()
-{
-    double r, h;
-    const double PI = 3.14159265;
+int main() {
+    double radius, height;
+    constexpr double PI = 3.14159265;
 
     cout << "Enter radius (cm): ";
-    cin >> r;
+    cin >> radius;
     cout << "Enter height (cm): ";
-    cin >> h;
+    cin >> height;
 
-    double v = PI * (r * r) * h;
+    double const v = PI * (radius * radius) * height;
 
     cout << "Volume of the cylinder is: " << v << " cm^3" << endl;
 

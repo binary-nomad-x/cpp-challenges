@@ -2,7 +2,8 @@
 using namespace std;
 
 int main() {
-    double angle1, angle2, angle3;
+
+    double angle1, angle2;
 
     cout << "Enter the first angle: ";
     cin >> angle1;
@@ -11,7 +12,7 @@ int main() {
 
     // Intelligence Check
     if (angle1 + angle2 < 180 && angle1 > 0 && angle2 > 0) {
-        angle3 = 180 - (angle1 + angle2);
+        const double angle3 = 180 - (angle1 + angle2);
         cout << "The third angle is: " << angle3 << "°" << endl;
     } else {
         cout << "Error: These angles cannot belong to a triangle." << endl;

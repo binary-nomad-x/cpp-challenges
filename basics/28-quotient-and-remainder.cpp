@@ -26,8 +26,8 @@ int main() {
         cout << "Error: Division by zero is undefined!" << endl;
     } else {
         // Performing calculations
-        int quotient = a / b;
-        int remainder = a % b;
+        const int quotient = a / b;
+        const int remainder = a % b;
 
         cout << "-----------------------------" << endl;
         cout << "Quotient (a / b)  : " << quotient << endl;

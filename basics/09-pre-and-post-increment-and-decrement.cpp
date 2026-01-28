@@ -3,13 +3,13 @@ using namespace std;
 
 int main()
 {
-    int n = 57;
+    int num = 57;
 
-    cout << "the number is : " << n << endl;
+    cout << "the number is : " << num << endl;
 
     // int post_incremented = n++; // n value is passd and then the n is incremented by 1
 
-    // UNDEFINED BEHAVIOUR
+    // UNDEFINED BEHAVIOR
     // | ^
     // 9-pre-and-post-increment-and-decrement.cpp:6:9: note: 'int n' previously declared here
     //     6 |     int n = 57;
@@ -21,29 +21,29 @@ int main()
 
     // cout << "after the post increment : " << post_incremented << endl;
 
-    n++;
+    num++;
 
-    cout << "The value after POST INCREMENTED : " << n << endl;
+    cout << "The value after POST INCREMENTED : " << num << endl;
 
-    --n;
+    --num;
 
-    cout << "The value after PRE INCREMENT : " << n << endl;
+    cout << "The value after PRE INCREMENT : " << num << endl;
 
     // Direct addition
-    n = n + 1;
-    cout << "After increasing by 1 the number is : " << n << endl;
+    num = num + 1;
+    cout << "After increasing by 1 the number is : " << num << endl;
 
     // Post-decrement: Pehle use, phir kam
-    n--;
-    cout << "After post decrement by 1 the number is : " << n << endl;
+    num--;
+    cout << "After post decrement by 1 the number is : " << num << endl;
 
     // Pre-decrement: Pehle kam, phir use
-    --n;
-    cout << "After pre decrement by 1 the number is : " << n << endl;
+    --num;
+    cout << "After pre decrement by 1 the number is : " << num << endl;
 
     // Direct subtraction
-    n = n - 1;
-    cout << "After decreasing by 1 the number is : " << n << endl;
+    num = num - 1;
+    cout << "After decreasing by 1 the number is : " << num << endl;
 
     return 0;
 }

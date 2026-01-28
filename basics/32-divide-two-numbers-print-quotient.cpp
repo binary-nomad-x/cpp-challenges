@@ -2,16 +2,15 @@
 using namespace std;
 
 int main() {
-    double a, b;
-
+    double numOne, numTwo;
 
     cout << "Enter first number (divider ): ";
-    cin >> a;
+    cin >> numOne;
 
     cout << "Enter second number (dividend): ";
-    cin >> b;
+    cin >> numTwo;
 
-    cout << "quotient : " << a / b << endl;
+    cout << "quotient : " << numOne / numTwo << endl;
 
     return 0;
 }
