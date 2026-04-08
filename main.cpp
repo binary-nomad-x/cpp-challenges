@@ -37,7 +37,6 @@ int getValidInt(const string &prompt) {
             return value; // Success
         }
 
-
         cout << "❌ Invalid input! Please enter a number.\n";
         cin.clear(); // Clear error flag
         cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Discard bad input
@@ -60,7 +59,7 @@ void printSingleTable(const int number, const int limit) {
 }
 
 // --- Function: Print a Range of Tables (e.g., 2 to 5) ---
-void printMultipleTables(int start, int end, int limit) {
+void printMultipleTables(const int start, const int end, const int limit) {
     cout << "\nPrinting tables from " << start << " to " << end << ":\n";
     cout << "=========================================================\n";
 
@@ -71,10 +70,9 @@ void printMultipleTables(int start, int end, int limit) {
         }
         cout << endl; // New line after every row
     }
+
     cout << "=========================================================\n";
 }
-
-
 
 // --- Main Function ---
 int main() {
