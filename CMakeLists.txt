@@ -26,3 +26,5 @@ endforeach ()
 if (EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/main.cpp")
     add_executable(main_app main.cpp)
 endif ()
+
+
