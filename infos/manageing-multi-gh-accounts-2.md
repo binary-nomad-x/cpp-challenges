@@ -2,7 +2,8 @@
 
 **The Definitive Manual for Managing Personal, Work, and Secret GitHub Accounts on a Single Windows PC**
 
-This guide will teach you how to perfectly isolate your **Personal**, **Work**, and **Secret (Binary Nomad)** GitHub identities. Never mix up accounts, never leak your personal email to work repos, and never type passwords again.
+This guide will teach you how to perfectly isolate your **Personal**, **Work**, and **Secret (Binary Nomad)** GitHub
+identities. Never mix up accounts, never leak your personal email to work repos, and never type passwords again.
 
 ***
 
@@ -32,7 +33,8 @@ This guide will teach you how to perfectly isolate your **Personal**, **Work**, 
 ❌ PROBLEM: You push to Work GitHub → ❌ "Permission denied (publickey)"
 ```
 
-**Why it fails:** Your PC tries to use the **same SSH key** for all GitHub accounts. GitHub only accepts each key for one account.
+**Why it fails:** Your PC tries to use the **same SSH key** for all GitHub accounts. GitHub only accepts each key for
+one account.
 
 **The Solution:** Create unique "digital passports" (SSH keys) for each account + smart routing via SSH config.
 
@@ -41,6 +43,7 @@ This guide will teach you how to perfectly isolate your **Personal**, **Work**, 
 ## **Prerequisites**
 
 ✅ **Required Software:**
+
 ```
 • Git: https://git-scm.com/download/win
 • OpenSSH: Built into Windows 10/11 (PowerShell)
@@ -55,12 +58,14 @@ This guide will teach you how to perfectly isolate your **Personal**, **Work**, 
 Each GitHub account needs its own **Ed25519** SSH key pair (private + public).
 
 ### **1.1 Create `.ssh` Directory**
+
 ```powershell
 # Run in PowerShell (Admin)
 New-Item -ItemType Directory -Force -Path "$env:USERPROFILE\.ssh"
 ```
 
 ### **1.2 Generate Keys for Each Account**
+
 ```powershell
 # PERSONAL Account Key
 ssh-keygen -t ed25519 -C "personal@gmail.com" -f "$env:USERPROFILE\.ssh\id_ed25519_personal"
@@ -74,6 +79,7 @@ ssh-keygen -t ed25519 -C "secret@nomad.com" -f "$env:USERPROFILE\.ssh\id_ed25519
 ```
 
 **✅ Result:** 6 files created:
+
 ```
 id_ed25519_personal          👈 PRIVATE (Never share)
 id_ed25519_personal.pub      👈 PUBLIC (Upload to GitHub)
@@ -92,6 +98,7 @@ id_ed25519_bin_nomad.pub     👈 PUBLIC
 The SSH Agent holds your unlocked keys in memory (no repeated passphrase entry).
 
 ### **2.1 Enable & Start SSH Agent Service**
+
 ```powershell
 # Set to start automatically on boot
 Set-Service -Name ssh-agent -StartupType Automatic
@@ -104,6 +111,7 @@ Get-Service ssh-agent
 ```
 
 ### **2.2 Add All Keys to Agent**
+
 ```powershell
 ssh-add "$env:USERPROFILE\.ssh\id_ed25519_personal"
 ssh-add "$env:USERPROFILE\.ssh\id_ed25519_work" 
@@ -120,6 +128,7 @@ ssh-add -l
 ## **Step 3: Add Public Keys to GitHub**
 
 ### **3.1 Copy Public Key to Clipboard**
+
 ```powershell
 # Copy Personal key
 Get-Content "$env:USERPROFILE\.ssh\id_ed25519_personal.pub" | Set-Clipboard
@@ -132,6 +141,7 @@ Get-Content "$env:USERPROFILE\.ssh\id_ed25519_bin_nomad.pub" | Set-Clipboard
 ```
 
 ### **3.2 Add to GitHub**
+
 1. Login to **target GitHub account**
 2. **Settings** → **SSH and GPG keys** → **New SSH key**
 3. **Title:** `Windows-Laptop-2026`
@@ -147,11 +157,13 @@ Get-Content "$env:USERPROFILE\.ssh\id_ed25519_bin_nomad.pub" | Set-Clipboard
 This file tells SSH: *"When I say `bin-nomad`, use the secret key!"*
 
 ### **4.1 Create Config File**
+
 ```powershell
 notepad "$env:USERPROFILE\.ssh\config"
 ```
 
 ### **4.2 Paste This Exact Configuration**
+
 ```text
 # =====================================================
 # PERSONAL GitHub (Default - github.com)
@@ -182,14 +194,16 @@ Host github-nomad
 ```
 
 ### **4.3 Set Correct Permissions**
+
 ```powershell
 # Windows doesn't need chmod, but verify file exists
 Test-Path "$env:USERPROFILE\.ssh\config"
 ```
 
 **🔑 Key Settings Explained:**
+
 - `Host github-nomad` = Custom nickname/alias
-- `HostName github.com` = Real destination  
+- `HostName github.com` = Real destination
 - `IdentityFile` = Which private key to use
 - `IdentitiesOnly yes` = **CRITICAL** - Only try this one key!
 
@@ -214,11 +228,13 @@ ssh -T git@github-nomad
 ```
 
 **First time?** You'll see:
+
 ```
 The authenticity of host 'github.com (140.82.121.4)' can't be established.
 ECDSA key fingerprint is SHA256:...
 Are you sure you want to continue connecting (yes/no/[fingerprint])?
 ```
+
 **Type `yes`** ✅
 
 ***
@@ -228,12 +244,14 @@ Are you sure you want to continue connecting (yes/no/[fingerprint])?
 **SSH handles authentication. Git config handles "who wrote this code?"**
 
 ### **6.1 Global Identity (Default)**
+
 ```powershell
 git config --global user.name "Your Personal Name"
 git config --global user.email "personal@gmail.com"
 ```
 
 ### **6.2 Local Identity (Per Project)**
+
 ```powershell
 # Navigate to project folder
 cd C:\projects\secret-nomad-project
@@ -244,6 +262,7 @@ git config user.email "12345678+binary-nomad@users.noreply.github.com"
 ```
 
 **✅ Verify:**
+
 ```powershell
 git config user.name    # Should show repo-specific name
 git config user.email   # Should show repo-specific email
@@ -256,6 +275,7 @@ git config user.email   # Should show repo-specific email
 ## **Step 7: Clone, Push, and Manage Repositories**
 
 ### **7.1 Clone New Repositories**
+
 ```
 # PERSONAL repo
 git clone git@github-personal:yourusername/project.git
@@ -268,6 +288,7 @@ git clone git@github-nomad:binary-nomad/secret-project.git
 ```
 
 ### **7.2 Push Existing Local Code**
+
 ```powershell
 cd C:\my-local-project
 git init
@@ -281,6 +302,7 @@ git push -u origin main
 ```
 
 ### **7.3 Fix Wrong Remote URL**
+
 ```powershell
 # Check current remote
 git remote -v
@@ -296,14 +318,15 @@ git remote -v
 
 ## **Troubleshooting**
 
-| ❌ **Error** | ✅ **Solution** |
-|-------------|----------------|
-| `Permission denied (publickey)` | 1. Wrong alias? Use `git@github-nomad`<br>2. `ssh-add` keys again<br>3. Public key added to GitHub? |
-| `Could not resolve hostname github-nomad` | Check `~/.ssh/config` syntax (no extra spaces) |
-| Wrong author on commits | Run `git config user.email` **locally** in repo |
-| `ssh-add` forgets keys | Add to PowerShell `$PROFILE` for auto-load |
+| ❌ **Error**                               | ✅ **Solution**                                                                                      |
+|-------------------------------------------|-----------------------------------------------------------------------------------------------------|
+| `Permission denied (publickey)`           | 1. Wrong alias? Use `git@github-nomad`<br>2. `ssh-add` keys again<br>3. Public key added to GitHub? |
+| `Could not resolve hostname github-nomad` | Check `~/.ssh/config` syntax (no extra spaces)                                                      |
+| Wrong author on commits                   | Run `git config user.email` **locally** in repo                                                     |
+| `ssh-add` forgets keys                    | Add to PowerShell `$PROFILE` for auto-load                                                          |
 
 ### **Debug Commands**
+
 ```powershell
 # See which key is being offered
 ssh -vT git@github-nomad
@@ -320,7 +343,9 @@ ssh-add -l
 ## **Advanced Tips**
 
 ### **A. Auto-load Keys on Terminal Start**
+
 Add to PowerShell profile (`notepad $PROFILE`):
+
 ```powershell
 Start-Service ssh-agent
 ssh-add "$env:USERPROFILE\.ssh\id_ed25519_personal"
@@ -329,12 +354,14 @@ ssh-add "$env:USERPROFILE\.ssh\id_ed25519_bin_nomad"
 ```
 
 ### **B. Multiple Machines**
+
 ```
 ✅ OPTION 1: New keys per machine (Recommended)
 ✅ OPTION 2: Copy .ssh folder (encrypt before cloud storage)
 ```
 
 ### **C. VS Code Integration**
+
 ```
 1. Install "GitLens" extension
 2. VS Code auto-detects SSH config
@@ -345,14 +372,14 @@ ssh-add "$env:USERPROFILE\.ssh\id_ed25519_bin_nomad"
 
 ## **🎉 Summary Checklist**
 
-| ✅ **Completed** | **Step** |
-|------------------|----------|
-| ☐ | Generated 3 unique SSH keys |
-| ☐ | SSH Agent running + keys added |
-| ☐ | Public keys added to GitHub |
-| ☐ | `~/.ssh/config` created |
-| ☐ | `ssh -T git@github-nomad` works |
-| ☐ | `git config` set per repo |
+| ✅ **Completed** | **Step**                        |
+|-----------------|---------------------------------|
+| ☐               | Generated 3 unique SSH keys     |
+| ☐               | SSH Agent running + keys added  |
+| ☐               | Public keys added to GitHub     |
+| ☐               | `~/.ssh/config` created         |
+| ☐               | `ssh -T git@github-nomad` works |
+| ☐               | `git config` set per repo       |
 
 **You are now a Multi-Account GitHub Master! 🚀**
 
