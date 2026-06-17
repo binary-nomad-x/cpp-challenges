@@ -3,14 +3,16 @@
 ---
 
 #### **Problem Statement**
-Given an unsorted integer array, find the **smallest missing positive integer**. 
+
+Given an unsorted integer array, find the **smallest missing positive integer**.
 
 In other words, you need to find the lowest integer $x$ such that $x > 0$ and $x$ is not present in the array.
 
 #### **Constraints**
-1.  **Time Complexity:** Ideally, your solution should run in **$O(n)$** time.
-2.  **Space Complexity:** Try to achieve this with **$O(1)$** auxiliary space (modifying the input array in-place).
-3.  **Note:** Ignore zero ($0$) and negative integers.
+
+1. **Time Complexity:** Ideally, your solution should run in **$O(n)$** time.
+2. **Space Complexity:** Try to achieve this with **$O(1)$** auxiliary space (modifying the input array in-place).
+3. **Note:** Ignore zero ($0$) and negative integers.
 
 ---
 
@@ -60,4 +62,7 @@ int main() {
 ---
 
 #### **Hint**
-Think about the **Cyclic Sort** pattern. If the array has size $n$, the smallest missing positive integer must fall within the range $[1, n+1]$. You can try to place every number `x` at its corresponding index `x-1` (e.g., place `1` at `index 0`, `2` at `index 1`) using swaps.
+
+Think about the **Cyclic Sort** pattern. If the array has size $n$, the smallest missing positive integer must fall
+within the range $[1, n+1]$. You can try to place every number `x` at its corresponding index `x-1` (e.g., place `1` at
+`index 0`, `2` at `index 1`) using swaps.

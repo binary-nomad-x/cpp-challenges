@@ -6,9 +6,10 @@ set(CMAKE_CXX_STANDARD 14)
 # 1. Find all .cpp files in 'basics' AND 'exercises' (recursive)
 file(GLOB_RECURSE BASIC_FILES "basics/*.cpp")
 file(GLOB_RECURSE EXERCISE_FILES "exercises/*.cpp")
+file(GLOB_RECURSE BOOK_EXERCISES_AND_EXAMPLE_FILES "kirch-prinz/*.cpp")
 
 # Combine both lists
-set(ALL_SOURCES ${BASIC_FILES} ${EXERCISE_FILES})
+set(ALL_SOURCES ${BASIC_FILES} ${EXERCISE_FILES} ${BOOK_EXERCISES_AND_EXAMPLE_FILES})
 
 # 2. Loop through all found source files
 foreach (sourcefile ${ALL_SOURCES})
