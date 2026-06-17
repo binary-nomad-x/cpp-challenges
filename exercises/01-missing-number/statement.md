@@ -17,7 +17,7 @@ In other words, you need to find the lowest integer $x$ such that $x > 0$ and $x
 #### **Examples**
 
 | Input           | Output | Explanation                                               |
-| :-------------- | :----- | :-------------------------------------------------------- |
+|:----------------|:-------|:----------------------------------------------------------|
 | `[3, 4, -1, 1]` | **2**  | 1 is present, but the next positive integer 2 is missing. |
 | `[1, 2, 0]`     | **3**  | 1 and 2 are present, so the smallest missing is 3.        |
 | `[7, 8, 9, 11]` | **1**  | The smallest positive integer 1 is not in the array.      |

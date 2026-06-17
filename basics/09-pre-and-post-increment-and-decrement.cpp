@@ -1,48 +1,37 @@
 #include <iostream>
+#include <iomanip> // For better formatting
+
 using namespace std;
 
 int main() {
+    // Initializing the starting value
     int num = 57;
+    cout << "Initial Number: " << num << endl;
+    cout << "-----------------------------" << endl;
 
-    cout << "the number is : " << num << endl;
-
-    // int post_incremented = n++; // n value is passd and then the n is incremented by 1
-
-    // UNDEFINED BEHAVIOR
-    // | ^
-    // 9-pre-and-post-increment-and-decrement.cpp:6:9: note: 'int n' previously declared here
-    //     6 |     int n = 57;
-    //       |         ^
-    // PS C:\projects\cpp\leanring\basic>
-
-    // WE WONT USE A THIRD VARIABLE post_incremented,
-    // WE CAN POST & PRE INCREMENTED WITHOUT ASSIGNING TO ANOTHER VARIABLE
-
-    // cout << "after the post increment : " << post_incremented << endl;
-
+    // 1. Post-Increment: Increments after the current line
     num++;
+    cout << "After Post-Increment (num++): " << num << endl;
 
-    cout << "The value after POST INCREMENTED : " << num << endl;
-
+    // 2. Pre-Decrement: Decrements before the next operation
     --num;
+    cout << "After Pre-Decrement (--num):  " << num << endl;
 
-    cout << "The value after PRE INCREMENT : " << num << endl;
-
-    // Direct addition
+    // 3. Direct Addition: Explicitly adding 1
     num = num + 1;
-    cout << "After increasing by 1 the number is : " << num << endl;
+    cout << "After Direct Addition (+1):   " << num << endl;
 
-    // Post-decrement: Pehle use, phir kam
+    // 4. Post-Decrement: Decrements after the current line
     num--;
-    cout << "After post decrement by 1 the number is : " << num << endl;
+    cout << "After Post-Decrement (num--): " << num << endl;
 
-    // Pre-decrement: Pehle kam, phir use
+    // 5. Pre-Decrement: Decrements before the next operation
     --num;
-    cout << "After pre decrement by 1 the number is : " << num << endl;
+    cout << "After Pre-Decrement (--num):  " << num << endl;
 
-    // Direct subtraction
+    // 6. Direct Subtraction: Explicitly subtracting 1
     num = num - 1;
-    cout << "After decreasing by 1 the number is : " << num << endl;
+    cout << "After Direct Subtraction (-1): " << num << endl;
 
     return 0;
 }
