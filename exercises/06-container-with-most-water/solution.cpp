@@ -8,8 +8,8 @@ int maxArea(vector<int> &height) {
     int maxWater = 0;
 
     while (left < right) {
-        int h = min(height[left], height[right]);
-        int w = right - left;
+        const int h = min(height[left], height[right]);
+        const int w = right - left;
         maxWater = max(maxWater, h * w);
 
         if (height[left] < height[right]) {
@@ -17,6 +17,7 @@ int maxArea(vector<int> &height) {
         } else {
             right--;
         }
+
     }
 
     return maxWater;

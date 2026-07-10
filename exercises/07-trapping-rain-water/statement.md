@@ -4,7 +4,8 @@
 
 #### **Problem Statement**
 
-Given `n` non-negative integers representing an elevation map where the width of each bar is `1`, compute how much water it can trap after raining.
+Given `n` non-negative integers representing an elevation map where the width of each bar is `1`, compute how much water
+it can trap after raining.
 
 #### **Constraints**
 
@@ -18,10 +19,10 @@ Given `n` non-negative integers representing an elevation map where the width of
 
 #### **Examples**
 
-| Input                            | Output | Explanation |
-|:---------------------------------|:-------|:------------|
+| Input                                  | Output | Explanation              |
+|:---------------------------------------|:-------|:-------------------------|
 | `[0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1]` | `6`    | 6 units of water trapped |
-| `[4, 2, 0, 3, 2, 5]`            | `9`    | 9 units of water trapped |
+| `[4, 2, 0, 3, 2, 5]`                   | `9`    | 9 units of water trapped |
 
 ---
 
@@ -54,4 +55,5 @@ int main() {
 
 #### **Hint**
 
-Use the **two-pointer** technique. Track the maximum height from the left and right. Water trapped at any position is `min(maxLeft, maxRight) - height[i]`.
+Use the **two-pointer** technique. Track the maximum height from the left and right. Water trapped at any position is
+`min(maxLeft, maxRight) - height[i]`.
