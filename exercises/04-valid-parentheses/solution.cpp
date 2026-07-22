@@ -4,7 +4,7 @@
 
 using namespace std;
 
-bool isValid(const string& s) {
+static bool isValid(const string& s) {
     stack<char> st;
 
     for (char c: s) {

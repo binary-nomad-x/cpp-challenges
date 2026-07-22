@@ -4,7 +4,7 @@
 
 using namespace std;
 
-vector<int> twoSum(const vector<int> &nums, const int target) {
+static vector<int> twoSum(const vector<int> &nums, const int target) {
     unordered_map<int, int> seen;
 
     for (int i = 0; i < nums.size(); i++) {

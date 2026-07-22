@@ -4,7 +4,7 @@
 
 using namespace std;
 
-int lengthOfLongestSubstring(const string &s) {
+static int lengthOfLongestSubstring(const string &s) {
     unordered_map<char, int> lastIndex;
     int left = 0, maxLen = 0;
 
@@ -13,6 +13,7 @@ int lengthOfLongestSubstring(const string &s) {
         if (lastIndex.find(c) != lastIndex.end() && lastIndex[c] >= left) {
             left = lastIndex[c] + 1;
         }
+
         lastIndex[c] = right;
         maxLen = max(maxLen, right - left + 1);
     }

@@ -8,7 +8,7 @@ using namespace std;
  * @param nums: A reference to a vector of integers.
  * @return: The smallest missing positive integer.
  */
-int findSmallestMissing(vector<int> &nums) {
+static int findSmallestMissing(vector<int> &nums) {
     const int n = static_cast<int>(nums.size());
 
     int i = 0;

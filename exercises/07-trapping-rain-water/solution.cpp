@@ -3,7 +3,7 @@
 
 using namespace std;
 
-int trap(vector<int> &height) {
+static int trap(const vector<int> &height) {
     int left = 0, right = height.size() - 1;
     int leftMax = 0, rightMax = 0;
     int total = 0;

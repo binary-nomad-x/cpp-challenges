@@ -4,7 +4,7 @@
 
 using namespace std;
 
-vector<string> fizzBuzz(const int n) {
+static vector<string> fizzBuzz(const int n) {
     vector<string> result;
 
     for (int i = 1; i <= n; i++) {
