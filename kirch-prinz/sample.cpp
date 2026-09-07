@@ -4,12 +4,12 @@
 
 using namespace std;
 
-void pause() {
+static void pause() {
     // page: 12
     cout << "BREAK" << endl;
 }
 
-void allTyps() {
+static void allTyps() {
     // page: 18
 
     // boolean
@@ -31,7 +31,7 @@ void allTyps() {
     long double adsfsadfsadf;
 }
 
-void showLimitsOfDataTypes() {
+static void showLimitsOfDataTypes() {
     // page: 18
     cout << "int max " << INT_MAX << endl;
     cout << "int min" << INT_MIN << endl;
@@ -50,7 +50,7 @@ void showLimitsOfDataTypes() {
     cout << sizeof(long long) << endl;
 }
 
-void escapedString() {
+static void escapedString() {
     cout << "\nthis is \t a string \n\t\t with \"many\" escape sequences!!! \n";
 }
 
