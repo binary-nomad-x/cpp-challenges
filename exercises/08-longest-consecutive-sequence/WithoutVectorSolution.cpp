@@ -9,7 +9,7 @@ using namespace std;
 namespace {
     class WithoutVectorSolution {
     public:
-        static int longestConsecutive(initializer_list<int> nums) {
+        static int longestConsecutive(const initializer_list<int> nums) {
             unordered_set<int> s;
             s.reserve(nums.size());
             s.insert(nums.begin(), nums.end());
@@ -33,5 +33,29 @@ namespace {
 }
 
 int main() {
-    std::cout << WithoutVectorSolution::longestConsecutive({100, 4, 200, 1, 3, 2}) << '\n';
+    constexpr auto RESET = "\033[0m";
+    constexpr auto CYAN = "\033[36m";
+    constexpr auto GREEN = "\033[32m";
+    constexpr auto YELLOW = "\033[33m";
+    constexpr auto BOLD = "\033[1m";
+
+    const initializer_list<int> input = {100, 4, 200, 1, 3, 2, 6, 0};
+    const int result = WithoutVectorSolution::longestConsecutive(input);
+
+    cout << '\n';
+    cout << CYAN << BOLD << "╔══════════════════════════════════════╗" << RESET << '\n';
+    cout << CYAN << BOLD << "║     Longest Consecutive Sequence     ║" << RESET << '\n';
+    cout << CYAN << BOLD << "╚══════════════════════════════════════╝" << RESET << '\n';
+
+    cout << '\n';
+    cout << YELLOW << "Input  : " << RESET << "{ ";
+    for (const int n: input)
+        cout << n << ' ';
+    cout << "}\n";
+
+    cout << GREEN << BOLD << "Result : " << RESET << result << '\n';
+
+    cout << '\n';
+    cout << GREEN << "✓ Solution completed successfully!" << RESET << '\n';
+    cout << '\n';
 }
