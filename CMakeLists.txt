@@ -2,24 +2,25 @@ cmake_minimum_required(VERSION 3.20)
 project(learning)
 
 set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-# Find all .cpp files recursively
-file(GLOB_RECURSE ALL_SOURCES "basics/*.cpp" "exercises/*.cpp" "kirch-prinz/*.cpp")
+file(GLOB_RECURSE SOURCES CONFIGURE_DEPENDS
+        "basics/*.cpp"
+        "exercises/*.cpp"
+        "kirch-prinz/*.cpp"
+)
 
-foreach (sourcefile ${ALL_SOURCES})
-    # Use the parent directory name + filename as the target name to avoid conflicts
-    get_filename_component(dir ${sourcefile} DIRECTORY)
-    get_filename_component(dir_name ${dir} NAME)
-    get_filename_component(file_name ${sourcefile} NAME_WE)
-    set(exe_name "${dir_name}-${file_name}")
+foreach (source ${SOURCES})
+    get_filename_component(dir "${source}" DIRECTORY)
+    get_filename_component(dir_name "${dir}" NAME)
+    get_filename_component(file_name "${source}" NAME_WE)
 
-    add_executable(${exe_name} ${sourcefile})
-    message(STATUS "Created target: ${exe_name} from ${sourcefile}")
+    set(target "${dir_name}-${file_name}")
+
+    add_executable("${target}" "${source}")
+    message(STATUS "Target: ${target}")
 endforeach ()
 
-# Include main.cpp at the root if it exists
 if (EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/main.cpp")
     add_executable(main_app main.cpp)
 endif ()
-
-
