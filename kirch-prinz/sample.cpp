@@ -12,23 +12,32 @@ static void pause() {
 static void allTyps() {
     // page: 18
 
-    // boolean
-    bool demo;
+    bool booleanValue;
+
+    // 8 bit
+    char singleCharSingleQuoted;
 
     // charts
     char16_t demo2;
     char32_t demoooo;
-    wchar_t charssss;
+    wchar_t widtCharacter; // 16 bit
 
     // integers
-    short demooooooooooo = -12222;
-    int rewrqwer;
-    long erwerew;
+    short shortNumber_16bits = -12222;
+    int interger_16bits;
+    long longInteger_32bits;
+
+    long long longLongInterger_64bits = 213243214;
 
     // for floating point values
-    float adsfasfd;
-    double adsfsadfadsf;
-    long double adsfsadfsadf;
+    // single precision float value => 6 significant digits
+    float singlePrecisionFloat;
+
+    // double precision float, 10 significant digits
+    double doublePrecisionFloat;
+
+    // 10 significant digits
+    long double extendedPrecisionFloatingPoint;
 }
 
 static void showLimitsOfDataTypes() {
