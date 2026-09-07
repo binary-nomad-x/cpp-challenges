@@ -1,31 +1,25 @@
-#include <algorithm>
 #include <iostream>
 #include <vector>
 
 using namespace std;
 
-static int maxArea(const vector<int> &height) {
-    int left = 0;
-    int right = static_cast<int>(height.size()) - 1;
-    int maxWater = 0;
+static int maxArea(const vector<int> &h) {
+    int l = 0, r = static_cast<int>(h.size()) - 1, best = 0;
 
-    while (left < right) {
-        maxWater = max(
-            maxWater,
-            min(height[left], height[right]) * (right - left)
-        );
+    while (l < r) {
+        const int hl = h[l], hr = h[r];
+        const int area = (hl < hr ? hl : hr) * (r - l);
 
-        if (height[left] <= height[right]) {
-            ++left;
-        } else {
-            --right;
-        }
+        if (area > best)
+            best = area;
+
+        hl < hr ? ++l : --r;
     }
 
-    return maxWater;
+    return best;
 }
 
 int main() {
-    cout << maxArea({1, 8, 6, 2, 5, 4, 8, 3, 7}) << '\n'; // 49
-    cout << maxArea({1, 1}) << '\n'; // 1
+    cout << maxArea({1, 8, 6, 2, 5, 4, 8, 3, 7}) << '\n';
+    cout << maxArea({1, 1}) << '\n';
 }
