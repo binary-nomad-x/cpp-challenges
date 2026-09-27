@@ -13,8 +13,11 @@
 Compile & run any exercise:
 
 ```sh
-cd exercises/XX-name && g++ -std=c++17 -o solution solution.cpp && ./solution
+./scripts/run-cpp.sh exercises/XX-name/solution.cpp
 ```
+
+The binary is built in `build/run/`, executed from the exercise folder, and
+deleted again as soon as it exits — no `.exe` is ever created next to a `.cpp`.
 
 ---
 
@@ -33,9 +36,12 @@ cd exercises/XX-name && g++ -std=c++17 -o solution solution.cpp && ./solution
 | CodeChef             | https://www.codechef.com                                 | Monthly contests           |
 | C++ Reference        | https://en.cppreference.com                              | Language reference         |
 
-```ssh
-Remove-Item -Path .\* -Include *.exe -Recurse
+```sh
+./scripts/clean-exes.sh
 ```
+
+Removes everything in `build/run/` plus any stray `*.exe`, `a.out`, or
+same-named binary left in the source tree.
 
 
 
