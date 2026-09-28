@@ -1,0 +1,35 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "type": "shell",
+      "label": "C++: build active file",
+      "detail": "Compile into build/run/ with g++ (keeps the exe so the debugger can start it)",
+      "command": "${workspaceFolder}/scripts/run-cpp.sh",
+      "args": ["-b", "-d", "-o", "${fileBasenameNoExtension}", "${file}"],
+      "options": { "cwd": "${workspaceFolder}" },
+      "problemMatcher": ["$gcc"],
+      "group": { "kind": "build", "isDefault": true },
+      "presentation": { "reveal": "silent", "panel": "shared" }
+    },
+    {
+      "type": "shell",
+      "label": "C++: run active file",
+      "detail": "Compile into build/run/, run it, then delete the exe",
+      "command": "${workspaceFolder}/scripts/run-cpp.sh",
+      "args": ["${file}"],
+      "options": { "cwd": "${workspaceFolder}" },
+      "problemMatcher": ["$gcc"],
+      "group": { "kind": "test", "isDefault": true },
+      "presentation": { "reveal": "always", "panel": "shared" }
+    },
+    {
+      "type": "shell",
+      "label": "C++: clean executables",
+      "detail": "Delete build/run/ and any stray exe left in the source tree",
+      "command": "${workspaceFolder}/scripts/clean-exes.sh",
+      "options": { "cwd": "${workspaceFolder}" },
+      "problemMatcher": []
+    }
+  ]
+}
