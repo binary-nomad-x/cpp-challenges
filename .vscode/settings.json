@@ -1,9 +1,29 @@
 {
-    "editor.fontSize": 12,
-    "files.associations": {
-        "*.h": "cpp"
-    },
-    "C_Cpp.default.compilerPath": "/usr/bin/g++",
-    "C_Cpp.default.cppStandard": "c++17",
-    "C_Cpp.default.cStandard": "c17"
+  "editor.fontSize": 12,
+  "files.associations": {
+    "*.h": "cpp"
+  },
+  "C_Cpp.default.compilerPath": "/usr/bin/g++",
+  "C_Cpp.default.cppStandard": "c++17",
+  "C_Cpp.default.cStandard": "c17",
+  "workbench.colorCustomizations": {
+    "editor.background": "#211B17",
+    "editor.foreground": "#D8CFC7",
+    "sideBar.background": "#1B1613",
+    "sideBar.foreground": "#CFC3B8",
+    "activityBar.background": "#171210",
+    "activityBar.foreground": "#D2B9A5",
+    "titleBar.activeBackground": "#211A16",
+    "titleBar.activeForeground": "#D8CFC7",
+    "tab.activeBackground": "#2A211C",
+    "tab.activeForeground": "#E0D3C8",
+    "tab.inactiveBackground": "#1C1714",
+    "tab.inactiveForeground": "#93877E",
+    "statusBar.background": "#2A201B",
+    "statusBar.foreground": "#D8CFC7",
+    "panel.background": "#1C1714",
+    "terminal.background": "#181310",
+    "terminal.foreground": "#D8CFC7",
+    "editorGroupHeader.tabsBackground": "#1C1714"
+  }
 }
