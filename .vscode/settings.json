@@ -25,5 +25,13 @@
     "terminal.background": "#181310",
     "terminal.foreground": "#D8CFC7",
     "editorGroupHeader.tabsBackground": "#1C1714"
+  },
+  "editor.tokenColorCustomizations": {
+    "comments": "#8F8177",
+    "strings": "#C9A982",
+    "numbers": "#C99B72",
+    "keywords": "#C5A0A0",
+    "functions": "#D0B08C",
+    "types": "#BFAE91"
   }
 }

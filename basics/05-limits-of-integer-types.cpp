@@ -10,7 +10,7 @@ int main() {
 
     cout << "minimium limit int type : " << INT_MIN << endl;
 
-    cout << "max of unsinged int type : " << UINT_MAX << endl;
+    cout << "max of unsinged int type : " << UINT_MAX << endl
 
     cout << "max of long long type : " << LONG_LONG_MAX << endl;
 
