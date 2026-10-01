@@ -1,11 +1,5 @@
 {
-  "editor.fontSize": 12,
-  "files.associations": {
-    "*.h": "cpp"
-  },
   "C_Cpp.default.compilerPath": "/usr/bin/g++",
-  "C_Cpp.default.cppStandard": "c++17",
-  "C_Cpp.default.cStandard": "c17",
   "workbench.colorCustomizations": {
     "editor.background": "#211B17",
     "editor.foreground": "#D8CFC7",

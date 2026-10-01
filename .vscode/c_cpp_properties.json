@@ -1,13 +1,11 @@
 {
   "configurations": [
     {
-      "name": "Win32",
+      "name": "Default",
       "includePath": ["${workspaceFolder}/**"],
-      "defines": ["_DEBUG", "UNICODE", "_UNICODE"],
-      "compilerPath": "C:\\msys64\\ucrt64\\bin\\gcc.exe",
+      "cppStandard": "c++17",
       "cStandard": "c17",
-      "cppStandard": "gnu++17",
-      "intelliSenseMode": "windows-gcc-x64"
+      "intelliSenseMode": "${default}"
     }
   ],
   "version": 4
