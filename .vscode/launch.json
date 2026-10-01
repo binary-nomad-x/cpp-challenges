@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
     "version": "2.0.0",
     "configurations": [
         {
@@ -24,4 +25,30 @@
             "preLaunchTask": "build cpp file"
         }
     ]
+=======
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "C++: Debug Active File",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/build/${fileBasenameNoExtension}",
+      "args": [],
+      "stopAtEntry": false,
+      "cwd": "${workspaceFolder}",
+      "externalConsole": false,
+      "MIMode": "gdb",
+      "preLaunchTask": "C++: build active file",
+      "linux": {"miDebuggerPath": "/usr/bin/gdb"},
+      "windows": {"miDebuggerPath": "gdb.exe"},
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        }
+      ]
+    }
+  ]
+>>>>>>> 1a7d2678a16d2710dd35c3250ba518739a5a6468
 }

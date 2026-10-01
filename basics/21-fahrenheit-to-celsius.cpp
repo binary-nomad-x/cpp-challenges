@@ -2,7 +2,8 @@
 #include <iomanip>
 using namespace std;
 
-int main() {
+int main()
+{
     double fahrenheit;
 
     cout << "Enter temperature in Fahrenheit: ";

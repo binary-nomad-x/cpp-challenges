@@ -29,3 +29,10 @@ Desktop.ini
 
 # --- Large/Temporary Files ---
 *.log
+
+# --- Build Output ---
+build
+cmake-build-debug/
+
+# --- opencode plugin deps ---
+.opencode/node_modules/
