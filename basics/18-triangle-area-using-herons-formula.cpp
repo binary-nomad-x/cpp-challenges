@@ -19,7 +19,6 @@ int main() {
         cout << "Error: These sides do not form a valid triangle." << endl;
     }
 
-
     system("pause");
     return 0;
 }
