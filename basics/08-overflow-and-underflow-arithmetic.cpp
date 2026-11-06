@@ -9,10 +9,8 @@ using namespace std;
 using namespace std;
 
 int main() {
-    int n; // Badi range use karein taake check kar sakein
-
     cout << "Enter a number : ";
-    if (!(cin >> n)) {
+    if (int n; !(cin >> n)) {
         cout << "Not an integer but something else" << endl;
     } else if (n < INT_MIN || n > INT_MAX) {
         cout << "Range of int is [" << INT_MIN << ", " << INT_MAX << "]" << endl;
