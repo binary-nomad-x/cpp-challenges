@@ -34,10 +34,10 @@ static int findSmallestMissing(vector<int> &nums) {
 }
 
 int main() {
-    vector<int> test1 = {3, 4, -1, 1};
-    vector<int> test2 = {1, 2, 0};
-    vector<int> test3 = {7, 8, 9, 11, 12};
-    vector<int> test4 = {1, 1, 1};
+    vector test1 = {3, 4, -1, 1};
+    vector test2 = {1, 2, 0};
+    vector test3 = {7, 8, 9, 11, 12};
+    vector test4 = {1, 1, 1};
 
     cout << "Test 1: " << findSmallestMissing(test1) << " (Expected: 2)" << endl;
     cout << "Test 2: " << findSmallestMissing(test2) << " (Expected: 3)" << endl;
