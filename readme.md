@@ -1,333 +1,165 @@
-# ⚡ C++ for Competitive Programming & Systems — 2026 Roadmap
+# C++ for Competitive Programming & Systems
 
-A focused path from C++ fundamentals → CP mastery → systems-level depth.
-
-**Goal:** Become a programmer who can look at an unfamiliar problem, derive an efficient algorithm, prove it to yourself, and implement it reliably under time pressure.
+**Goal:** Take an unfamiliar problem, derive an efficient algorithm, prove it, and implement it under time pressure.
 
 ---
 
-## 🧭 Learning Paths
+## Project Setup
+
+### Layout
 
 ```text
-┌─────────────────────────────────────────────────────────────┐
-│  1. C++ Fundamentals      → syntax, types, IO, functions    │
-│  2. STL Mastery           → vector, map, set, priority_q    │
-│  3. Algorithms            → sorting, searching, complexity  │
-│  4. Core Techniques       → two pointers, sliding window,   │
-│                             prefix sum, binary search       │
-│  5. Recursion & BT        → subsets, permutations, grids    │
-│  6. Data Structures       → trees, graphs, heaps, DSU       │
-│  7. DP                    → 1D, 2D, knapsack, LIS, LCS      │
-│  8. Number Theory         → sieve, modular arithmetic       │
-│  9. Advanced Structures   → Fenwick, Segment Tree, Trie     │
-│ 10. Advanced Algorithms   → SCC, KMP, Z, suffix arrays      │
-└─────────────────────────────────────────────────────────────┘
+learning-cpp/
+├── CMakeLists.txt
+├── main.cpp            # optional, builds main_app
+├── basics/             # syntax, types, IO, functions
+├── exercises/          # problem solutions, grouped by topic
+│   ├── dp/
+│   ├── graphs/
+│   └── ...
+├── kirch-prinz/        # book exercises
+└── .vscode/
+    └── settings.json   # shared settings only
 ```
 
----
+### How the build works
 
-## 📚 Phase Breakdown
+- Every `.cpp` under the project becomes its own executable.
+- The target name comes from the path: `exercises/dp/knapsack.cpp` → `exercises-dp-knapsack`.
+- Binaries go to `build/bin/`.
+- Build folders are ignored by CMake and git: `build/` (VS Code) and `cmake-build-*/` (CLion).
 
-### Phase 1 — C++ Fundamentals
+### Adding a new file
 
-**Learn:** variables, `long long`, IO (`cin`/`cout`, `sync_with_stdio`), operators, conditions, loops, functions (by ref, `const&`), arrays, strings, `auto`, `struct`, `enum`.
-**Skip for now:** advanced OOP, inheritance, templates, GUI, multithreading.
+1. Create the `.cpp` in any subfolder.
+2. Reload the project:
+    - CLion: **Reload CMake Project**
+    - VS Code: **CMake: Configure**
+3. Pick the target from the status bar and run it.
 
----
+### VS Code setup (once per machine)
 
-### Phase 2 — STL Fundamentals
+1. Install **C/C++**, **CMake Tools**, and **CMake**.
+2. `Ctrl+Shift+P` → **CMake: Select a Kit** → choose the same compiler CLion uses.
+3. Select the build target from the status bar.
+4. Press `F5` to run or debug.
 
-**Must know:** `vector`, `pair`, `set`, `multiset`, `map`, `unordered_map`, `stack`, `queue`, `deque`, `priority_queue`, iterators.
+Keep only `settings.json` in `.vscode/`. Do not commit `tasks.json`, `launch.json`, or `c_cpp_properties.json`, because
+CMake Tools handles them.
 
----
+### Rules for consistency
 
-### Phase 3 — STL Algorithms
-
-**Must know:** `sort`, `reverse`, `min`/`max`, `swap`, `binary_search`, `lower_bound`, `upper_bound`, `min_element`, `max_element`, `accumulate`, `count`, `find`.
-
-Custom comparators + sorting pairs/structs are **mandatory**.
-
----
-
-### Phase 4 — Complexity Analysis
-
-**Know:** O(1), O(log n), O(n), O(n log n), O(n²), O(2ⁿ), O(n!).
-
-**Habit:** Read constraints → estimate allowed complexity → design algorithm.
-
-| n      | Allowed complexity |
-| ------ | ------------------ |
-| ≤ 20   | O(2ⁿ) / O(n!)      |
-| ≤ 500  | O(n³)              |
-| ≤ 5000 | O(n²)              |
-| ≤ 10⁶  | O(n log n)         |
-| ≤ 10⁸  | O(n)               |
+- Use the same toolchain in CLion and VS Code.
+- Do not hardcode compiler paths in the repo.
+- Name files by topic, so each target name is clear.
 
 ---
 
-### Phase 5 — Core Techniques
+## Learning Path
 
-- Prefix sum
-- Frequency counting (array vs map)
-- Sorting-based solving
-- **Two pointers**
-- **Sliding window**
-- **Binary search on answer**
-
----
-
-### Phase 6 — Recursion & Backtracking
-
-Base case → recursive case → call stack.
-Practice: subsets, permutations, combinations, grid search, N-Queens.
-
-Structure:
-
-```text
-Choose → Explore → Undo → Try next
-```
+| #  | Phase                    | Focus                                                                  |
+|----|--------------------------|------------------------------------------------------------------------|
+| 1  | C++ basics               | types, `long long`, IO, loops, functions, references, `struct`         |
+| 2  | STL                      | `vector`, `pair`, `set`, `map`, `stack`, `queue`, `priority_queue`     |
+| 3  | STL algorithms           | `sort` with comparators, `lower_bound`, `upper_bound`, `accumulate`    |
+| 4  | Complexity               | read constraints, estimate what runs in time                           |
+| 5  | Core techniques          | prefix sums, two pointers, sliding window, binary search on answer     |
+| 6  | Recursion & backtracking | subsets, permutations, grids, N-Queens                                 |
+| 7  | Trees & graphs           | DFS, BFS, Dijkstra, DSU, MST                                           |
+| 8  | Greedy                   | sorting, intervals, priority-queue greedy, exchange arguments          |
+| 9  | Dynamic programming      | 1D, 2D, knapsack, coin change, LIS, LCS, then tree/bitmask DP          |
+| 10 | Number theory            | gcd, sieve, modular arithmetic, fast power                             |
+| 11 | Advanced structures      | Fenwick tree, segment tree, lazy propagation, trie, sparse table       |
+| 12 | Advanced algorithms      | SCC, bridges, KMP, Z-algorithm, suffix arrays (learn only when needed) |
 
 ---
 
-### Phase 7 — Data Structures
+## Complexity Cheat Sheet
 
-**Conceptual:** arrays, dynamic arrays, linked lists, stacks, queues, hash tables, heaps.
-**Then:** binary trees, DFS/BFS traversals, BST, tree DFS pattern.
-
----
-
-### Phase 8 — Graphs
-
-- Adjacency list (default in CP)
-- **BFS** — shortest path (unweighted), components, multi-source
-- **DFS** — components, cycles, topological sort
-- **Dijkstra** — weighted shortest path
-- **DSU / Union-Find** — dynamic connectivity
-- **MST** — Kruskal (DSU), Prim (heap)
+| n       | Allowed complexity |
+|---------|--------------------|
+| ≤ 20    | O(2ⁿ), O(n!)       |
+| ≤ 500   | O(n³)              |
+| ≤ 5,000 | O(n²)              |
+| ≤ 10⁶   | O(n log n)         |
+| ≤ 10⁸   | O(n)               |
 
 ---
 
-### Phase 9 — Greedy
+## Pattern Recognition
 
-Sorting + greedy, interval scheduling, priority-queue greedy, exchange arguments.
-
-The skill is _recognizing_ when greedy works — not memorizing algorithms.
-
----
-
-### Phase 10 — Dynamic Programming
-
-Order matters:
-
-1. **1D DP** — Fibonacci, Climbing Stairs, House Robber
-2. **2D DP** — grid paths, knapsack
-3. **0/1 & Unbounded Knapsack**
-4. **Coin Change** (min coins / count ways)
-5. **LIS** — O(n²) then O(n log n)
-6. **LCS** — string 2D DP
-7. **Advanced** — Tree DP, Bitmask DP, Digit DP, Interval DP
+| Signal                    | Technique                   |
+|---------------------------|-----------------------------|
+| Sorted data               | Binary search, two pointers |
+| Repeated range sums       | Prefix sums                 |
+| Contiguous subarray       | Sliding window              |
+| Shortest path, unweighted | BFS                         |
+| Shortest path, weighted   | Dijkstra                    |
+| Connectivity              | DFS, BFS, DSU               |
+| Overlapping subproblems   | DP                          |
+| Range query + update      | Fenwick, segment tree       |
+| Prefix matching           | Trie                        |
 
 ---
 
-### Phase 11 — Number Theory
+## Problem-Solving Method
 
-GCD, LCM, primality, **Sieve of Eratosthenes**, factorization, modular arithmetic, **binary exponentiation**.
-Later: modular inverse, Fermat, Euler Totient, CRT, extended Euclid.
-
----
-
-### Phase 12 — Advanced Data Structures
-
-- **Fenwick Tree (BIT)** — point update, prefix query
-- **Segment Tree** — range query + update
-- **Lazy Propagation**
-- **Sparse Table** — static RMQ
-- **Trie** — prefix / XOR problems
+1. Read the input, output, constraints, and examples.
+2. Use the constraints to decide the target complexity.
+3. Solve the examples by hand.
+4. Write a brute force first.
+5. Find the bottleneck and match a pattern.
+6. Check the complexity before coding.
+7. Implement cleanly, then test edge cases: min, max, duplicates, empty input, overflow.
 
 ---
 
-### Phase 13 — Advanced Algorithms
+## Contest Strategy
 
-- Floyd-Warshall, Bellman-Ford
-- SCC (Kosaraju, Tarjan)
-- Bridges, articulation points
-- KMP, Z-algorithm
-- Rolling hash, suffix array
-- Advanced DP optimizations (CHT, D&C)
-
-Only learn when problem difficulty justifies.
+- **During:** solve easy problems first, return to hard ones only with a clear idea.
+- **After:** read the editorial, close it, reimplement the solution from memory, then submit. If you can't reimplement
+  it, you haven't learned it.
 
 ---
 
-## 🧠 Problem-Solving Method
+## Debugging
 
-```text
-1. Read carefully   → input, output, constraints, examples
-2. Study constraints → what complexity fits?
-3. Solve examples    → manually, understand "why"
-4. Brute force       → write it, even if slow
-5. Find bottleneck   → what makes it slow?
-6. Match pattern     → see table below
-7. Compute complexity before coding
-8. Implement cleanly
-9. Test edge cases   → min, max, duplicates, empty, overflow
-10. Submit & analyze
-```
+On Wrong Answer: find the smallest failing case, compare expected and actual output, identify the wrong assumption, fix
+it, and retest.
 
-### Pattern Recognition Table
+Common causes:
 
-| Signal                     | Technique                    |
-| -------------------------- | ---------------------------- |
-| Sorted data                | Binary Search / Two Pointers |
-| Repeated range sums        | Prefix Sum                   |
-| Contiguous subarray        | Sliding Window               |
-| Frequency                  | Map / Array                  |
-| Shortest path (unweighted) | BFS                          |
-| Shortest path (weighted)   | Dijkstra                     |
-| Connectivity               | DFS / BFS / DSU              |
-| Overlapping subproblems    | DP                           |
-| Range query / update       | Fenwick / Segment Tree       |
-| Prefix strings             | Trie                         |
-
----
-
-## 🏆 Contest Strategy
-
-**During:**
-Read all → solve easy first → medium → hard → return only with a clear idea.
-
-**After (critical):**
-For every unsolved problem:
-
-```text
-Read editorial → understand → CLOSE it → reimplement → submit
-```
-
-If you can't reimplement, you didn't learn it.
-
----
-
-## 🐛 Debugging
-
-On Wrong Answer:
-
-```text
-Smallest failing case → expected vs actual → wrong assumption → fix → retest
-```
-
-**Common causes:**
-
-- Integer overflow → use `long long`
-- Off-by-one → `i < n` vs `i <= n`
-- Binary search invariants
-- DP/BFS/Dijkstra initialization
-- Forgetting multiple test cases (`t`)
+- Integer overflow (use `long long`)
+- Off-by-one errors (`i < n` vs `i <= n`)
+- Wrong binary search bounds
+- Missing initialization in DP, BFS, or Dijkstra
 - Missing `visited` array
+- Forgetting multiple test cases
 
 ---
 
-## 📅 Weekly Plan (2 hrs/day)
+## Weekly Plan (about 2 hours per day)
 
-| Day      | Focus                                       |
-| -------- | ------------------------------------------- |
-| Mon–Fri  | 30 min learn · 60 min solve · 30 min review |
-| Saturday | Contest or virtual contest                  |
-| Sunday   | Review editorials, re-solve, notes          |
+| Day      | Focus                                     |
+|----------|-------------------------------------------|
+| Mon–Fri  | 30 min learn, 60 min solve, 30 min review |
+| Saturday | Virtual contest                           |
+| Sunday   | Re-solve old problems, update notes       |
 
----
-
-## 📈 Progression
-
-Track **quality**, not just quantity:
-
-- Solved independently vs. with hints vs. with editorial
-- Contest rating trend
-- Recurring mistakes
-- Topics mastered
-
-Difficulty ladder: `800 → 1000 → 1200 → 1400 → 1600+`
-
-The real progression:
-
-```text
-Can implement → Can recognize pattern → Can derive solution
-→ Can solve unfamiliar variations → Can solve under time pressure
-```
+Track quality, not just count: solved alone, with hints, or with the editorial.
 
 ---
 
-## 🗂 Repo Layout
-
-```text
-cpp-cp/
-├── 01-basics/
-├── 02-stl/
-├── 03-algorithms/
-├── 04-complexity/
-├── 05-techniques/      # prefix sum, two pointers, sliding window
-├── 06-recursion/
-├── 07-data-structures/
-├── 08-trees/
-├── 09-graphs/
-├── 10-greedy/
-├── 11-dp/
-├── 12-number-theory/
-├── 13-advanced-ds/     # fenwick, seg tree, trie
-└── 14-advanced-algos/  # SCC, KMP, suffix arrays
-```
-
----
-
-## ✅ Master Checklist (Condensed)
-
-- [ ] **C++** — types, IO, loops, functions, references, structs
-- [ ] **STL** — vector, pair, set, map, stack, queue, pq
-- [ ] **Algos** — sort, binary_search, lower/upper_bound
-- [ ] **Complexity** — O(1) → O(n!)
-- [ ] **Techniques** — prefix sum, two pointers, sliding window
-- [ ] **Recursion** — subsets, permutations, backtracking
-- [ ] **Trees** — DFS, BFS, BST
-- [ ] **Graphs** — BFS, DFS, Dijkstra, DSU, MST
-- [ ] **Greedy** — sorting, intervals, priority queue
-- [ ] **DP** — 1D, 2D, knapsack, LIS, LCS, tree DP, bitmask
-- [ ] **Number Theory** — sieve, mod arithmetic, fast pow
-- [ ] **Advanced DS** — Fenwick, Seg Tree, Trie, Sparse Table
-- [ ] **Advanced Algos** — SCC, KMP, Z, suffix array
-
----
-
-## 🎯 Philosophy
-
-Don't memorize 100 algorithms.
-
-Deeply master **10 techniques** and solve many variations of each — that beats shallow exposure to everything.
-
-Final progression:
-
-```text
-Learn → Practice → Fail → Analyze → Recognize patterns → Solve faster → Compete
-```
-
-**Primary goal:** _Take an unfamiliar problem, derive an efficient algorithm, prove it, and implement it under pressure._
-
----
-
-## 🔗 External Resources (Optional)
+## Resources
 
 | Resource         | Link                              |
-| ---------------- | --------------------------------- |
+|------------------|-----------------------------------|
 | CSES Problem Set | https://cses.fi/problemset/       |
 | Codeforces       | https://codeforces.com/problemset |
-| LeetCode         | https://leetcode.com              |
 | AtCoder          | https://atcoder.jp                |
 | USACO Guide      | https://usaco.guide               |
 | C++ Reference    | https://en.cppreference.com       |
 
 ---
 
-### 🧰 Local Tooling
-
-```sh
-./scripts/run-cpp.sh exercises/XX-name/solution.cpp   # compile & run (temp binary)
-./scripts/clean-exes.sh                               # cleanup stray binaries
-```
+**Philosophy:** Master about 10 core techniques and their variations. That beats shallow exposure to everything.
