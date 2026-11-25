@@ -34,7 +34,7 @@ Return the maximum amount of water a container can store.
 
 #### **Starter Template (C++)**
 
-```cpp
+```c++
 #include <iostream>
 #include <vector>
 

@@ -99,7 +99,7 @@ Even though 1 and 2 appear twice, they're counted once.
 
 ### The Problem with Brute Force
 
-```cpp
+```c++
 // ❌ BAD: Brute Force - O(n²)
 for each num in array:
     count = 1
@@ -155,7 +155,7 @@ Example 2: [100, 4, 200, 1, 3, 2]
 
 ### Step 1: Create a Hash Set
 
-```cpp
+```c++
 unordered_set<int> numSet;
 for (int num : nums) {
     numSet.insert(num);
@@ -170,7 +170,7 @@ for (int num : nums) {
 
 ### Step 2: Find Sequence Starts
 
-```cpp
+```c++
 for (int num : numSet) {
     // Check if this is the start of a sequence
     if (numSet.find(num - 1) == numSet.end()) {
@@ -227,7 +227,7 @@ Final: longestStreak = 4
 
 ## 🚀 Complete C++ Solution
 
-```cpp
+```c++
 #include <vector>
 #include <unordered_set>
 #include <algorithm>
@@ -323,7 +323,7 @@ Explanation:
 
 ### 1. **Avoids Sorting**
 
-```cpp
+```c++
 // ❌ Bad: O(n log n)
 sort(nums.begin(), nums.end());  // We don't need this!
 
@@ -333,7 +333,7 @@ unordered_set<int> numSet(nums.begin(), nums.end());
 
 ### 2. **Smart Start Detection**
 
-```cpp
+```c++
 // Instead of checking every number in sequence,
 // we only check where sequences start
 if (numSet.find(num - 1) == numSet.end()) {
@@ -343,7 +343,7 @@ if (numSet.find(num - 1) == numSet.end()) {
 
 ### 3. **Duplicate Handling**
 
-```cpp
+```c++
 // Set automatically removes duplicates
 // [1, 1, 2, 2, 3] → {1, 2, 3}
 // We count each number once
@@ -351,7 +351,7 @@ if (numSet.find(num - 1) == numSet.end()) {
 
 ### 4. **Zero Extra Work**
 
-```cpp
+```c++
 // Each number is processed exactly once as a start,
 // and maybe once more during counting
 // No number is ever processed twice unnecessarily
@@ -361,7 +361,7 @@ if (numSet.find(num - 1) == numSet.end()) {
 
 ## 🧪 Test Cases
 
-```cpp
+```c++
 // Test Case 1: Basic case
 Input:  [100, 4, 200, 1, 3, 2]
 Output: 4

@@ -32,7 +32,7 @@ Return the answer in any order.
 
 #### **Starter Template (C++)**
 
-```cpp
+```c++
 #include <iostream>
 #include <vector>
 #include <unordered_map>

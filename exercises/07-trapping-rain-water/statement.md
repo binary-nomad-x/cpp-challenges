@@ -28,7 +28,7 @@ it can trap after raining.
 
 #### **Starter Template (C++)**
 
-```cpp
+```c++
 #include <iostream>
 #include <vector>
 

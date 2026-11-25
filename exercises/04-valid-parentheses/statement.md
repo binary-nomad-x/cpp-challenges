@@ -33,7 +33,7 @@ A string is valid if:
 
 #### **Starter Template (C++)**
 
-```cpp
+```c++
 #include <iostream>
 #include <stack>
 #include <string>

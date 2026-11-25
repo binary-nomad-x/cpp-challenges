@@ -40,7 +40,7 @@ FizzBuzz
 
 #### **Starter Template (C++)**
 
-```cpp
+```c++
 #include <iostream>
 #include <vector>
 #include <string>

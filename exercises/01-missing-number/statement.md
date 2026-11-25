@@ -29,7 +29,7 @@ In other words, you need to find the lowest integer $x$ such that $x > 0$ and $x
 
 #### **Starter Template (C++)**
 
-```cpp
+```c++
 #include <iostream>
 #include <vector>
 

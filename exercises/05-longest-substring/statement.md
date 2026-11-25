@@ -27,7 +27,7 @@ Given a string `s`, find the length of the **longest substring** without repeati
 
 #### **Starter Template (C++)**
 
-```cpp
+```c++
 #include <iostream>
 #include <string>
 #include <unordered_map>

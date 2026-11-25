@@ -278,7 +278,7 @@ Create a small test project.
 
 Example:
 
-```cpp
+```c++
 #include "raylib.h"
 
 int main() {
@@ -482,7 +482,7 @@ Exit
 
 A simple raylib implementation:
 
-```cpp
+```c++
 while (!WindowShouldClose()) {
     // Input
     // Update
@@ -509,7 +509,7 @@ For example:
 
 raylib provides keyboard functions such as:
 
-```cpp
+```c++
 IsKeyDown(KEY_W)
 IsKeyPressed(KEY_SPACE)
 IsKeyReleased(KEY_E)
@@ -517,7 +517,7 @@ IsKeyReleased(KEY_E)
 
 Example:
 
-```cpp
+```c++
 if (IsKeyDown(KEY_W)) {
     player.y -= 5;
 }
@@ -525,7 +525,7 @@ if (IsKeyDown(KEY_W)) {
 
 Movement:
 
-```cpp
+```c++
 if (IsKeyDown(KEY_W)) player.y -= 5;
 if (IsKeyDown(KEY_S)) player.y += 5;
 if (IsKeyDown(KEY_A)) player.x -= 5;
@@ -540,7 +540,7 @@ A player should eventually be represented by its own class.
 
 Example:
 
-```cpp
+```c++
 class Player {
 public:
     Vector2 position;
@@ -553,7 +553,7 @@ public:
 
 Implementation:
 
-```cpp
+```c++
 void Player::update() {
     if (IsKeyDown(KEY_W)) position.y -= speed;
     if (IsKeyDown(KEY_S)) position.y += speed;
@@ -633,7 +633,7 @@ GAME_OVER
 
 A simple enum:
 
-```cpp
+```c++
 enum class GameState {
     Menu,
     Playing,
@@ -704,7 +704,7 @@ Movement should eventually use delta time instead of assuming every frame takes 
 
 Bad approach:
 
-```cpp
+```c++
 player.x += 5;
 ```
 
@@ -712,7 +712,7 @@ This makes movement dependent on FPS.
 
 Better concept:
 
-```cpp
+```c++
 player.x += speed * deltaTime;
 ```
 
@@ -730,7 +730,7 @@ Position += Velocity × DeltaTime
 
 Set a target FPS:
 
-```cpp
+```c++
 SetTargetFPS(60);
 ```
 
