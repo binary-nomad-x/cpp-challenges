@@ -1,42 +1,53 @@
 # Permutations
 
 - **Difficulty:** Medium
-- **Topics:** Data Structures, Algorithms
+- **Topics:** Backtracking
 
 ## Problem Statement
 
-Return all permutations of the array.
+Given an array of distinct integers, return all possible permutations, one per line, space-separated.
 
-## Function Signature
+## Input Format
 
-```python
-def solve(*args, **kwargs):
-    pass
-```
+First line: n. Second line: n distinct integers.
+
+## Output Format
+
+Print all permutations, one per line, any order.
 
 ## Examples
 
 **Example 1**
 
+Input:
 ```
-Input:  (see problem statement)
-Output: (expected result)
+3
+1 2 3
+```
+
+Output:
+```
+3 2 1
 ```
 
 **Example 2**
 
+Input:
 ```
-Input:  (see problem statement)
-Output: (expected result)
+1
+1
 ```
+
+Output:
+```
+1
+```
+
 
 ## Constraints
 
-- 1 <= n <= 10^5
-- Values fit within standard integer ranges.
+- 1 <= n <= 6
 
-## Hints
+---
 
-1. Think about the simplest brute-force approach first.
-2. Consider using a hash map, two pointers, or stack to optimize.
-3. Test edge cases such as empty input and single element.
+**Your Task:** Solve this problem in **C++ (C++17)**. Read input from standard input and write the answer to standard output. Do not include explanations — only the required output.
